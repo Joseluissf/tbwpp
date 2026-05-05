@@ -526,18 +526,8 @@
         btn.disabled = true;
         btn.textContent = 'Sending...';
 
-        const hidden = document.createElement('form');
-        hidden.method = 'POST';
-        hidden.action = WEBHOOK_URL;
-        hidden.target = 'signup-target';
-        hidden.style.display = 'none';
-        const field = document.createElement('input');
-        field.name = 'email';
-        field.value = email;
-        hidden.appendChild(field);
-        document.body.appendChild(hidden);
-        hidden.submit();
-        document.body.removeChild(hidden);
+        const img = new Image();
+        img.src = WEBHOOK_URL + '?email=' + encodeURIComponent(email);
 
         messageEl.textContent = "You're in! We'll be in touch.";
         messageEl.className = 'form-message success';
