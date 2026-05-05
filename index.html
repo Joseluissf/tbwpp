@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Big Wedding Planning Podcast — TBWPP</title>
+  <meta name="description" content="Expert wedding planning advice from a certified planner with 20+ years of experience. 400+ episodes, 3.5M+ downloads. Sign up for updates on new products.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+    :root {
+      --accent: #f92a7e;
+      --accent-hover: #d91e6a;
+      --black: #1a1a1a;
+      --white: #faf9f7;
+      --gray: #6b6b6b;
+      --gray-light: #e5e4e2;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    html { scroll-behavior: smooth }
+
+    body {
+      font-family: var(--font);
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+/* TYPOGRAPHY */
+    .display {
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+    }
+    .headline {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .label {
+      font-weight: 600;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* SECTIONS */
+    section { padding: 80px 24px }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* NAV */
+    nav {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .nav-logo {
+      font-weight: 900;
+      font-size: 1.1rem;
+      letter-spacing: -0.03em;
+    }
+    .nav-links { display: flex; gap: 32px; align-items: center }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--black);
+      font-weight: 600;
+      font-size: 0.875rem;
+      letter-spacing: 0.02em;
+    }
+    .nav-links a:hover { color: var(--accent) }
+
+    /* HERO */
+    .hero {
+      padding: 100px 24px 80px;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero .container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .hero-headline {
+      font-size: clamp(3rem, 8vw, 6rem);
+    }
+    .hero-sub {
+      font-size: clamp(1.1rem, 2vw, 1.35rem);
+      color: var(--gray);
+      max-width: 540px;
+      margin-top: 24px;
+      line-height: 1.6;
+    }
+    .hero-form {
+      margin-top: 40px;
+      display: flex;
+      gap: 12px;
+      max-width: 480px;
+    }
+    .hero-form input {
+      flex: 1;
+      padding: 16px 20px;
+      font-size: 1rem;
+      font-family: var(--font);
+      border: 2px solid var(--black);
+      background: transparent;
+      outline: none;
+      border-radius: 12px;
+      transition: border-color 0.2s;
+    }
+    .hero-form input:focus { border-color: var(--accent) }
+    .hero-form input::placeholder { color: var(--gray) }
+    .hero-form button {
+      padding: 16px 32px;
+      font-size: 0.875rem;
+      font-weight: 700;
+      font-family: var(--font);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .hero-form button:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+    .form-message {
+      margin-top: 12px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      min-height: 1.4em;
+    }
+    .form-message.success { color: var(--accent) }
+    .form-message.error { color: #dc2626 }
+
+    /* STATS BAR */
+    .stats {
+      background: var(--black);
+      color: var(--white);
+      padding: 48px 24px;
+    }
+    .stats .container {
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center }
+    .stat-number {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .stat-label {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    /* ABOUT */
+    .about .container {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--gray-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .about-label {
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .about-name {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 24px;
+    }
+    .about-bio {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+    .about-bio p + p { margin-top: 16px }
+
+    /* COMING SOON */
+    .coming {
+      background: var(--black);
+      color: var(--white);
+    }
+    .coming-label {
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .coming-headline {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      max-width: 700px;
+    }
+    .coming-text {
+      margin-top: 24px;
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-label {
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .testimonials-headline {
+      font-size: clamp(2rem, 4vw, 3rem);
+      max-width: 600px;
+      margin-bottom: 56px;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+    .testimonial {}
+    .testimonial-quote {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--black);
+    }
+    .testimonial-source {
+      margin-top: 16px;
+      font-weight: 700;
+      font-size: 0.875rem;
+    }
+    .testimonial-date {
+      color: var(--gray);
+      font-size: 0.8rem;
+      font-weight: 400;
+    }
+
+    /* LISTEN */
+    .listen {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+    }
+    .listen-label {
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .listen-headline {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 40px;
+    }
+    .listen-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .listen-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      border: 2px solid var(--white);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      border-radius: 12px;
+      transition: background 0.2s, color 0.2s;
+    }
+    .listen-link:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+    .listen-link svg { width: 20px; height: 20px }
+
+    /* FOOTER CTA */
+    .footer-cta { text-align: center }
+    .footer-cta-headline {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 16px;
+    }
+    .footer-cta-sub {
+      color: var(--gray);
+      font-size: 1.1rem;
+      margin-bottom: 40px;
+    }
+    .footer-cta .hero-form {
+      margin: 0 auto;
+      justify-content: center;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 32px 24px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--gray);
+      border-top: 1px solid var(--gray-light);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      section { padding: 64px 20px }
+      .hero { min-height: auto; padding: 80px 20px 64px }
+      .hero-form { flex-direction: column }
+      .hero-form button { width: 100% }
+      .about .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .about-photo { max-width: 240px }
+      .testimonials-grid { grid-template-columns: 1fr }
+      .stats .container { gap: 40px }
+      .nav-links { gap: 20px }
+      .nav-links a { font-size: 0.8rem }
+      .footer-cta .hero-form { flex-direction: column }
+      .footer-cta .hero-form button { width: 100% }
+      .listen-links { flex-direction: column; align-items: center }
+      .listen-link { width: 100%; max-width: 280px; justify-content: center }
+      .color-switcher { top: auto; bottom: 16px; right: 16px }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto }
+      *, *::before, *::after { transition: none !important }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+  <nav>
+    <div class="nav-logo">TBWPP</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#listen">Listen</a>
+      <a href="#signup">Sign Up</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div>
+        <h1 class="display hero-headline">Wedding planning<br>for the rest&nbsp;of&nbsp;us.</h1>
+        <p class="hero-sub">The Big Wedding Planning Podcast. Over 400 episodes of real advice from a certified planner with 20+ years in the game. No gatekeeping, no fluff, no budget shaming. Just the stuff that actually helps.</p>
+        <form class="hero-form" id="hero-signup" novalidate>
+          <input type="email" placeholder="Your email" aria-label="Email address" required>
+          <button type="submit">Get Updates</button>
+        </form>
+        <div class="form-message" id="hero-message" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="container">
+      <div class="stat">
+        <div class="stat-number">400+</div>
+        <div class="stat-label">Episodes</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">3.5M+</div>
+        <div class="stat-label">Downloads</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">2016</div>
+        <div class="stat-label">Since</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-photo">
+        <img src="michelle.webp" alt="Michelle D. Martinez, host of The Big Wedding Planning Podcast">
+      </div>
+      <div>
+        <div class="label about-label">Your Host</div>
+        <h2 class="headline about-name">Michelle D.&nbsp;Martinez</h2>
+        <div class="about-bio">
+          <p>Certified wedding consultant with over 20 years in the industry. California-based, real-world tested, zero tolerance for nonsense.</p>
+          <p>Since 2016, Michelle has helped thousands of couples plan weddings they actually love through The Big Wedding Planning Podcast. Think of her as the wedding planner friend you didn't know you needed. Heart, humor, and honesty included.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMING SOON -->
+  <section class="coming">
+    <div class="container">
+      <div class="label coming-label">Coming Soon</div>
+      <h2 class="headline coming-headline">Something new is&nbsp;brewing.</h2>
+      <p class="coming-text">We're building new tools and resources for couples who want to plan a beautiful wedding without breaking the bank. Sign up to be the first to know.</p>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="label testimonials-label">What Listeners Say</div>
+      <h2 class="headline testimonials-headline">Real people. Real&nbsp;weddings.</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <p class="testimonial-quote">"This podcast was recommended to me by a friend after she used it to plan her wedding. Michelle has been so incredibly helpful throughout the planning process! Truly a life saver."</p>
+          <div class="testimonial-source">BrittAye <span class="testimonial-date">Feb 2024</span></div>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-quote">"Of all the things you will spend money on for your wedding, this will have the greatest payoff! I've listened to SO many episodes and have learned so much. I truly wonder where I'd be in the planning process without this podcast."</p>
+          <div class="testimonial-source">Ponduh <span class="testimonial-date">Jun 2023</span></div>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-quote">"I have never witnessed someone so dedicated to their listeners! You feel like you are catching up on all the wedding details with your girlfriend and the best thing is Michelle is ACTUALLY THERE FOR YOU!"</p>
+          <div class="testimonial-source">MishMosh2424 <span class="testimonial-date">May 2023</span></div>
+        </div>
+        <div class="testimonial">
+          <p class="testimonial-quote">"It's like a wedding planner and a support group for $99 bucks. They'll be indebted to you through the wedding planning process and beyond."</p>
+          <div class="testimonial-source">Chloegettingmarried <span class="testimonial-date">May 2023</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTEN -->
+  <section class="listen" id="listen">
+    <div class="container">
+      <div class="label listen-label">Listen Now</div>
+      <h2 class="headline listen-headline">Wherever you get your&nbsp;podcasts.</h2>
+      <div class="listen-links">
+        <a href="https://podcasts.apple.com/gb/podcast/the-big-wedding-planning-podcast/id1171455133" class="listen-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.988 3.657 9.128 8.438 9.879v-.006c.258.038.399-.105.399-.256v-.756c0-.267-.169-.575-.47-.758C7.2 18.526 5.5 15.474 5.5 12c0-3.59 2.91-6.5 6.5-6.5s6.5 2.91 6.5 6.5c0 3.474-1.7 6.526-4.867 8.103-.301.183-.47.491-.47.758v.756c0 .151.141.294.399.256C18.343 21.128 22 16.988 22 12c0-5.523-4.477-10-10-10zm0 4a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm0 5c-.828 0-1.5.672-1.5 1.5v4a1.5 1.5 0 003 0v-4c0-.828-.672-1.5-1.5-1.5z"/></svg>
+          Apple Podcasts
+        </a>
+        <a href="https://open.spotify.com/show/2wRC9zkqysDgZgnqnsvjQa" class="listen-link" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm3.75 14.65c-.15.25-.44.32-.68.17-1.88-1.15-4.25-1.41-7.04-.77-.27.06-.53-.1-.6-.37-.05-.27.11-.53.38-.6 3.05-.7 5.67-.4 7.77.89.24.15.31.44.17.68zm1-1.8c-.2.3-.55.38-.85.2-2.15-1.32-5.43-1.7-7.97-.93-.32.1-.67-.08-.77-.4-.1-.33.08-.67.4-.77 2.9-.88 6.52-.45 8.99 1.07.3.18.38.55.2.83zm.1-1.87c-2.58-1.53-6.83-1.67-9.29-.93-.4.12-.82-.1-.93-.5-.12-.4.1-.82.5-.93 2.83-.86 7.53-.69 10.5 1.07.35.21.47.67.26 1.03-.21.35-.67.47-1.04.26z"/></svg>
+          Spotify
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section class="footer-cta" id="signup">
+    <div class="container">
+      <h2 class="headline footer-cta-headline">Don't miss what's&nbsp;next.</h2>
+      <p class="footer-cta-sub">Join the list. We'll keep you posted.</p>
+      <form class="hero-form" id="footer-signup" novalidate>
+        <input type="email" placeholder="Your email" aria-label="Email address" required>
+        <button type="submit">Get Updates</button>
+      </form>
+      <div class="form-message" id="footer-message" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      &copy; 2026 The Big Wedding Planning Podcast. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const WEBHOOK_URL = 'https://hook.us2.make.com/lrtsdtsw1t38uy3eufkanzfj36xk65r3';
+
+    function handleSignup(form, messageEl) {
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        const input = form.querySelector('input[type="email"]');
+        const btn = form.querySelector('button');
+        const email = input.value.trim();
+
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          messageEl.textContent = 'Please enter a valid email address.';
+          messageEl.className = 'form-message error';
+          return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+
+        try {
+          await fetch(WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+          });
+          messageEl.textContent = "You're in! We'll be in touch.";
+          messageEl.className = 'form-message success';
+          input.value = '';
+        } catch {
+          messageEl.textContent = 'Something went wrong. Please try again.';
+          messageEl.className = 'form-message error';
+        }
+
+        btn.disabled = false;
+        btn.textContent = 'Get Updates';
+      });
+    }
+
+    handleSignup(document.getElementById('hero-signup'), document.getElementById('hero-message'));
+    handleSignup(document.getElementById('footer-signup'), document.getElementById('footer-message'));
+  </script>
+
+</body>
+</html>
