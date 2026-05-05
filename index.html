@@ -526,11 +526,12 @@
         btn.textContent = 'Sending...';
 
         try {
+          const formData = new FormData();
+          formData.append('email', email);
           await fetch(WEBHOOK_URL, {
             method: 'POST',
             mode: 'no-cors',
-            headers: { 'Content-Type': 'text/plain' },
-            body: JSON.stringify({ email })
+            body: formData
           });
           messageEl.textContent = "You're in! We'll be in touch.";
           messageEl.className = 'form-message success';
