@@ -385,8 +385,8 @@
       <div>
         <h1 class="display hero-headline">Wedding planning<br>for the rest&nbsp;of&nbsp;us.</h1>
         <p class="hero-sub">The Big Wedding Planning Podcast. Over 400 episodes of real advice from a certified planner with 20+ years in the game. No gatekeeping, no fluff, no budget shaming. Just the stuff that actually helps.</p>
-        <form class="hero-form" id="hero-signup" novalidate>
-          <input type="email" placeholder="Your email" aria-label="Email address" required>
+        <form class="hero-form" id="hero-signup" name="signup-hero" method="POST" data-netlify="true" novalidate>
+          <input type="email" name="email" placeholder="Your email" aria-label="Email address" required>
           <button type="submit">Get Updates</button>
         </form>
         <div class="form-message" id="hero-message" aria-live="polite"></div>
@@ -491,8 +491,8 @@
     <div class="container">
       <h2 class="headline footer-cta-headline">Don't miss what's&nbsp;next.</h2>
       <p class="footer-cta-sub">Join the list. We'll keep you posted.</p>
-      <form class="hero-form" id="footer-signup" novalidate>
-        <input type="email" placeholder="Your email" aria-label="Email address" required>
+      <form class="hero-form" id="footer-signup" name="signup-footer" method="POST" data-netlify="true" novalidate>
+        <input type="email" name="email" placeholder="Your email" aria-label="Email address" required>
         <button type="submit">Get Updates</button>
       </form>
       <div class="form-message" id="footer-message" aria-live="polite"></div>
@@ -506,12 +506,9 @@
     </div>
   </footer>
 
-  <iframe name="signup-target" style="display:none"></iframe>
   <script>
-    const WEBHOOK_URL = 'https://hook.us2.make.com/lrtsdtsw1t38uy3eufkanzfj36xk65r3';
-
     function handleSignup(form, messageEl) {
-      form.addEventListener('submit', e => {
+      form.addEventListener('submit', async e => {
         e.preventDefault();
         const input = form.querySelector('input[type="email"]');
         const btn = form.querySelector('button');
@@ -526,12 +523,20 @@
         btn.disabled = true;
         btn.textContent = 'Sending...';
 
-        const img = new Image();
-        img.src = WEBHOOK_URL + '?email=' + encodeURIComponent(email);
+        try {
+          await fetch('/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({ 'form-name': form.getAttribute('name'), email }).toString()
+          });
+          messageEl.textContent = "You're in! We'll be in touch.";
+          messageEl.className = 'form-message success';
+          input.value = '';
+        } catch {
+          messageEl.textContent = 'Something went wrong. Please try again.';
+          messageEl.className = 'form-message error';
+        }
 
-        messageEl.textContent = "You're in! We'll be in touch.";
-        messageEl.className = 'form-message success';
-        input.value = '';
         btn.disabled = false;
         btn.textContent = 'Get Updates';
       });
