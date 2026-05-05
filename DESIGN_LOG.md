@@ -41,3 +41,31 @@ Design decisions and rationale, append-only.
 ### Host Update
 - **Decision:** Removed Shaun Gray from all project materials. TBWPP is now presented as Michelle D. Martinez solo.
 - **Rationale:** Shaun is no longer part of the podcast.
+
+---
+
+## v0.3.0 — Launch (2026-05-05)
+
+### Accent Color: Hot Pink
+- **Decision:** Final accent color is #f92a7e (hot pink) with white button text. Replaced the lime green/orange/royal blue options.
+- **Rationale:** User preference. Hot pink is vibrant, youthful, and unexpected for a wedding brand — aligns with the "cool, younger brand" direction. Strong contrast against B&W.
+
+### Show Art in Hero
+- **Decision:** Podcast show art (480px on desktop) placed in hero section alongside headline. On mobile, art appears first above the headline.
+- **Rationale:** Establishes brand recognition immediately. The diamond-ring-with-rainbow-rays art is distinctive and colorful against the B&W page.
+
+### Social Links as Pill Buttons
+- **Decision:** Instagram and TikTok links displayed as pill-shaped outlined buttons below the hero content. Not in the footer.
+- **Rationale:** Social presence is a key discoverability channel for the podcast. Pill buttons give them visual weight without competing with the primary CTA (email signup).
+
+### Mailing List: Make.com Webhook + Google Sheets
+- **Decision:** Signup form sends GET request to Make.com webhook, which routes to Google Sheets. Not Mailchimp (minimum $20/mo).
+- **Rationale:** User already pays for Make.com. Google Sheets as the email store is free and portable — can import to any email platform later. GET-via-image-pixel avoids browser CORS restrictions.
+
+### Rounded Corners
+- **Decision:** Added 12px border-radius to buttons and inputs, 16px to images (show art, Michelle photo).
+- **Rationale:** User preference. Softens the Swiss severity, makes the page feel warmer and more approachable.
+
+### Deployment
+- **Decision:** Netlify free tier, auto-deploys from GitHub repo. Custom domain thebigweddingplanningpodcast.com pointed via A record + CNAME.
+- **Rationale:** Zero cost, instant deploys on git push, free SSL. Domain was previously on Squarespace/Fireside.fm.
