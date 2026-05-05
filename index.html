@@ -506,11 +506,12 @@
     </div>
   </footer>
 
+  <iframe name="signup-target" style="display:none"></iframe>
   <script>
     const WEBHOOK_URL = 'https://hook.us2.make.com/lrtsdtsw1t38uy3eufkanzfj36xk65r3';
 
     function handleSignup(form, messageEl) {
-      form.addEventListener('submit', async e => {
+      form.addEventListener('submit', e => {
         e.preventDefault();
         const input = form.querySelector('input[type="email"]');
         const btn = form.querySelector('button');
@@ -525,22 +526,22 @@
         btn.disabled = true;
         btn.textContent = 'Sending...';
 
-        try {
-          const formData = new FormData();
-          formData.append('email', email);
-          await fetch(WEBHOOK_URL, {
-            method: 'POST',
-            mode: 'no-cors',
-            body: formData
-          });
-          messageEl.textContent = "You're in! We'll be in touch.";
-          messageEl.className = 'form-message success';
-          input.value = '';
-        } catch {
-          messageEl.textContent = 'Something went wrong. Please try again.';
-          messageEl.className = 'form-message error';
-        }
+        const hidden = document.createElement('form');
+        hidden.method = 'POST';
+        hidden.action = WEBHOOK_URL;
+        hidden.target = 'signup-target';
+        hidden.style.display = 'none';
+        const field = document.createElement('input');
+        field.name = 'email';
+        field.value = email;
+        hidden.appendChild(field);
+        document.body.appendChild(hidden);
+        hidden.submit();
+        document.body.removeChild(hidden);
 
+        messageEl.textContent = "You're in! We'll be in touch.";
+        messageEl.className = 'form-message success';
+        input.value = '';
         btn.disabled = false;
         btn.textContent = 'Get Updates';
       });
