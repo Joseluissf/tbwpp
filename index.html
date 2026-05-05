@@ -108,6 +108,7 @@
       gap: 64px;
       align-items: center;
     }
+    .hero-content { order: -1 }
     .hero-art {
       width: 100%;
       border-radius: 16px;
@@ -368,8 +369,10 @@
     @media (max-width: 768px) {
       section { padding: 64px 20px }
       .hero { min-height: auto; padding: 80px 20px 64px }
-      .hero .container { grid-template-columns: 1fr; gap: 40px }
-      .hero-art { max-width: 240px; order: -1 }
+      .hero .container { grid-template-columns: 1fr; gap: 32px }
+      .hero-content { order: 0 }
+      .hero-art { max-width: 200px; margin: 0 auto }
+      .social-links { justify-content: center }
       .hero-form { flex-direction: column }
       .hero-form button { width: 100% }
       .about .container {
@@ -409,7 +412,10 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <div>
+      <div class="hero-art">
+        <img src="show-art.jpg" alt="The Big Wedding Planning Podcast show art — a hand holding a diamond ring with colorful rays">
+      </div>
+      <div class="hero-content">
         <h1 class="display hero-headline">Wedding planning<br>for the rest&nbsp;of&nbsp;us.</h1>
         <p class="hero-sub">The Big Wedding Planning Podcast. Over 400 episodes of real advice from a certified planner with 20+ years in the game. No gatekeeping, no fluff, no budget shaming. Just the stuff that actually helps.</p>
         <form class="hero-form" id="hero-signup" novalidate>
@@ -417,12 +423,7 @@
           <button type="submit">Get Updates</button>
         </form>
         <div class="form-message" id="hero-message" aria-live="polite"></div>
-      </div>
-      <div>
-        <div class="hero-art">
-          <img src="show-art.jpg" alt="The Big Wedding Planning Podcast show art — a hand holding a diamond ring with colorful rays">
-        </div>
-        <div class="social-links" style="justify-content:center;margin-top:24px">
+        <div class="social-links" style="margin-top:24px">
           <a href="https://www.instagram.com/thebigweddingplanningpodcast/" target="_blank" rel="noopener">Instagram</a>
           <a href="https://www.tiktok.com/@bigweddingplanningpod" target="_blank" rel="noopener">TikTok</a>
         </div>
